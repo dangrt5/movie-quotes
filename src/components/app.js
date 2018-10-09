@@ -7,6 +7,7 @@ import MovieQuote from "./movie_quote";
 import Nav from "./nav";
 import SignIn from "./sign_in";
 import SignUp from "./sign_up";
+import auth from "../hoc/auth";
 
 import {secret, people} from "../data/lists";
 
@@ -17,7 +18,7 @@ const App = () => (
         <Nav/>
         <div className="container">
           <Route exact path="/" component={Home}/>
-          <Route path="/about" component={About}/>
+          <Route path="/about" component={auth(About)}/>
           <Route path="/list" component={List}/>
           <Route path="/movie-quote" component={MovieQuote}/>
           <Route path="/person-list" render={props => <List {...props} title="List of People" list={people}/>}/>
