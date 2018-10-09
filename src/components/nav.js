@@ -20,9 +20,6 @@ class Nav extends React.Component {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/home">Home</Link>
-            </li>
-            <li>
               <Link to="/person-list">Person List</Link>
             </li>
             <li>
