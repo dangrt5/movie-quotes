@@ -59,6 +59,6 @@ function mapStateToProps(state) {
   }
 };
 
-export default connect(null, {
+export default connect(mapStateToProps, {
   signUp: signUp
 })(SignUp);
