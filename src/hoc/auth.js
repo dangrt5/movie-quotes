@@ -14,7 +14,7 @@ export default (WrappedComponent) => {
     checkAuth() {
       if(!this.props.auth) {
         this.props.history.push("/sign-in")
-      }
+      } 
     }
     render() {
       return <WrappedComponent log={this.log}/>;
