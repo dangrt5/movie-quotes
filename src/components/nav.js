@@ -1,5 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
+import {signOut} from "../actions";
 
 class Nav extends React.Component {
   render() {
@@ -34,6 +36,9 @@ class Nav extends React.Component {
             <li>
               <Link to="/sign-up">Sign Up</Link>
             </li>
+            <li>
+              <button onClick={this.props.signOut} className="btn red darken-2">Sign Out</button>
+            </li>
           </ul>
         </div>
       </nav>
@@ -41,4 +46,6 @@ class Nav extends React.Component {
   }
 }
 
-export default Nav;
+export default connect(null, {
+  signOut: signOut
+})(Nav)
