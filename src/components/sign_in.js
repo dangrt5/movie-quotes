@@ -12,7 +12,7 @@ class SignIn extends React.Component {
 
   render() {
     console.log("Sign In Props", this.props);
-    const {handleSubmit} = this.props;
+    const {handleSubmit, authError} = this.props;
     return (
       <div>
         <h1 className="center">Sign In</h1>
@@ -23,6 +23,7 @@ class SignIn extends React.Component {
           <div className="row">
             <div className="col s12 right-align">
               <button className="btn purple darken-1">Sign In</button>
+              <p className="red-text text-darken-2">{authError}</p>
             </div>
           </div>
         </form>
@@ -49,7 +50,13 @@ SignIn = reduxForm({
   validate
 })(SignIn);
 
+function mapStateToProps(state) {
+  return {
+    authError: state.user.signInError
+  }
+}
 
-export default connect(null, {
+
+export default connect(mapStateToProps, {
   signIn: signIn
 })(SignIn);
